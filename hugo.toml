@@ -1,63 +1,89 @@
 baseURL = 'https://Santimartiinez.github.io/'
 defaultContentLanguage = 'es'
-title = 'Santi Martínez'
+languageCode = 'es-es'
+title = 'Santiago Martínez Granda | Data Science & Analytics'
 theme = 'PaperMod'
 
 [pagination]
   pagerSize = 5
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true # Permite renderizar HTML limpio dentro de Markdown si creas posts en el futuro
+
+# ==========================================
+# MENÚ DE NAVEGACIÓN (Anclas de la Landing Page)
+# ==========================================
 [menu]
-  [[menu.main]]
-    identifier = "proyectos"
-    name = "Proyectos"
-    url = "/proyectos/"
-    weight = 10
   [[menu.main]]
     identifier = "sobre-mi"
     name = "Sobre mí"
-    url = "/sobre-mi/"
+    url = "/#sobre-mi"
+    weight = 10
+  [[menu.main]]
+    identifier = "experiencia"
+    name = "Trayectoria"
+    url = "/#experiencia"
     weight = 20
+  [[menu.main]]
+    identifier = "proyectos"
+    name = "Proyectos"
+    url = "/#proyectos"
+    weight = 30
+  [[menu.main]]
+    identifier = "habilidades"
+    name = "Stack"
+    url = "/#habilidades"
+    weight = 40
+  [[menu.main]]
+    identifier = "contacto"
+    name = "Contacto"
+    url = "/#contacto"
+    weight = 50
 
+# ==========================================
+# PARÁMETROS GENERALES Y SEO
+# ==========================================
 [params]
   env = 'production'
-  title = 'Santi Martínez'
-  description = 'Portfolio de Santi Martínez - Ingeniería y Ciencia de Datos'
-  author = 'Santi Martínez'
+  title = 'Santiago Martínez Granda'
+  description = 'Portfolio profesional de Santiago Martínez Granda - Estudiante de Ciencia de Datos (UNIR) y Jugador de Baloncesto (ex-ACB / FEB). Especializado en Python, SQL, R y Business Intelligence.'
+  author = 'Santiago Martínez Granda'
+  location = 'A Coruña, España'
+  email = 'santimgranda@gmail.com'
+  phone = '+34 604 00 19 57'
+  githubUser = 'Santimartiinez'
+  instagramUser = 'santimartiinez_'
+  # MODIFICAR AQUÍ: Pon tu URL exacta de LinkedIn cuando la personalices
+  linkedinUrl = 'https://linkedin.com/in/santiago-martinez-granda'
+  cvUrl = '/cv-santiago-martinez.pdf' # Coloca tu PDF dentro de la carpeta /static/
+  avatar = '/foto.jpg'                # Coloca tu foto dentro de la carpeta /static/
 
-  # Tema claro/oscuro
-  defaultTheme = 'auto' # o 'dark' si la quieres oscura por defecto
+  # Configuración Tema Claro / Oscuro de PaperMod
+  defaultTheme = 'auto'
   disableThemeToggle = false
   ShowReadingTime = true
   ShowShareButtons = false
+  ShowCodeCopyButtons = true
 
-  # Portada / Perfil
+  # Desactivamos profileMode básico para que Hugo cargue nuestro layouts/index.html personalizado
   [params.profileMode]
-    enabled = true
-    title = 'Santi Martínez'
-    subtitle = 'Estudiante de Ingeniería de Datos | Data Science & Analytics'
-    imageUrl = 'foto.jpg' # nombre de tu foto dentro de static/
-    imageTitle = 'Santi Martínez'
-    imageWidth = 150
-    imageHeight = 150
+    enabled = false
 
-    # Botones principales
-    [[params.profileMode.buttons]]
-      name = 'Proyectos'
-      url = '/proyectos/'
-
-    [[params.profileMode.buttons]]
-      name = 'Sobre mí'
-      url = '/sobre-mi/'
-
-  # Iconos de redes sociales
+  # Iconos de redes sociales (Usados si habilitas vistas secundarias de PaperMod)
   [[params.socialIcons]]
     name = 'github'
     url = 'https://github.com/Santimartiinez'
 
   [[params.socialIcons]]
     name = 'linkedin'
-    url = 'https://linkedin.com/in/tu-usuario'
+    url = 'https://linkedin.com/in/santiago-martinez-granda'
+
+  [[params.socialIcons]]
+    name = 'instagram'
+    url = 'https://instagram.com/santimartiinez_'
 
   [[params.socialIcons]]
     name = 'email'
-    url = 'mailto:tu-correo@gmail.com'
+    url = 'mailto:santimgranda@gmail.com'

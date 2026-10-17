@@ -1,0 +1,462 @@
+{{ define "main" }}
+
+<div class="portfolio-wrapper">
+
+  <!-- ==========================================
+       1. SECCIÓN HERO / PRESENTACIÓN
+       ========================================== -->
+  <section class="hero-section" id="inicio">
+    <div class="hero-content">
+      <div class="hero-badges">
+        <span class="status-badge">
+          <span class="pulse-dot"></span> Disponible para Prácticas en Ciencia de Datos
+        </span>
+        <span class="location-badge">📍 {{ .Site.Params.location }}</span>
+      </div>
+
+      <h1 class="hero-title">
+        Hola, soy <span class="gradient-text">{{ .Site.Params.author }}</span>
+      </h1>
+      
+      <h2 class="hero-role">
+        Data Science Student (UNIR) &amp; Jugador de Baloncesto FEB / ex-ACB
+      </h2>
+
+      <p class="hero-description">
+        Apasionado por las matemáticas, la física y la extracción de valor real a partir de los datos. 
+        Combino la formación analítica en <strong>Ciencia de Datos</strong> (Python, R, SQL, Grafos y BI) con la disciplina, 
+        resiliencia y trabajo bajo presión forjados en el deporte de élite profesional. Busco mi primera oportunidad en prácticas 
+        para aplicar modelos predictivos y algoritmos con datos reales de negocio.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#contacto" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Contactar ahora
+        </a>
+        <!-- NOTA: Sube tu CV con el nombre 'cv-santiago-martinez.pdf' a la carpeta /static/ -->
+        <a href="{{ .Site.Params.cvUrl | relURL }}" class="btn btn-secondary" download>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Descargar CV
+        </a>
+        <a href="https://github.com/{{ .Site.Params.githubUser }}" target="_blank" rel="noopener noreferrer" class="btn btn-icon" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="avatar-container">
+        <img src="{{ .Site.Params.avatar | relURL }}" alt="Foto de {{ .Site.Params.author }}" class="hero-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Santiago+Martinez&size=300&background=2563eb&color=fff&bold=true'" />
+        <div class="floating-stat stat-1">
+          <span class="stat-number">ACB</span>
+          <span class="stat-label">Debut Élite &amp; 2 Ascensos</span>
+        </div>
+        <div class="floating-stat stat-2">
+          <span class="stat-number">7.21</span>
+          <span class="stat-label">Nota Media Data Science</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       2. SECCIÓN SOBRE MÍ
+       ========================================== -->
+  <section class="section" id="sobre-mi">
+    <div class="section-header">
+      <span class="section-subtitle">Perfil Personal y Profesional</span>
+      <h2 class="section-title">Sobre mí</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Nací y crecí en <strong>A Coruña</strong> (24/03/2004). Desarrollé toda mi etapa escolar y el Bachillerato de Ciencias en el 
+          <strong>Colegio Santo Domingo (Dominicos)</strong>, donde descubrí mi vocación por las <strong>matemáticas y la física</strong>, 
+          disciplinas que siempre se me han dado bien y que hoy constituyen la base lógica de mi carrera tecnológica.
+        </p>
+        <p>
+          Actualmente curso el <strong>último año del Grado en Ciencia de Datos en la Universidad Internacional de La Rioja (UNIR)</strong>, 
+          manteniendo una nota media de <strong>7.21</strong>. Durante estos años he compaginado el rigor universitario con una exigente 
+          carrera en el baloncesto profesional, entrenando por las mañanas en dinámica de primer equipo con el <strong>Básquet Coruña (LEB Oro / ACB)</strong> 
+          y compitiendo los fines de semana como jugador vinculado en el <strong>Escola Basket Xiria</strong>.
+        </p>
+        <p>
+          Superar una rotura de ligamento cruzado con 17 años tras debutar en LEB Oro y regresar a las pistas hasta lograr 
+          <strong>dos ascensos a la Liga Endesa (ACB) y debutar en la máxima categoría nacional</strong> me ha enseñado el valor de la constancia diaria, 
+          la gestión de la incertidumbre y el trabajo en equipo. Mi objetivo inmediato es <strong>incorporarme en prácticas a una empresa</strong> 
+          donde pueda trabajar con flujos de datos reales, comprender cómo se despliegan los algoritmos en producción y aportar valor analítico desde el primer día.
+        </p>
+      </div>
+
+      <div class="about-cards">
+        <div class="info-card">
+          <div class="info-card-icon">🎯</div>
+          <div>
+            <h3>Enfoque Profesional</h3>
+            <p>Análisis exploratorio, modelado predictivo (Machine Learning), bases de datos relacionales/NoSQL y visualización ejecutiva para toma de decisiones.</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">📈</div>
+          <div>
+            <h3>Finanzas Personales e Inversión</h3>
+            <p>Inversor activo e interesado en la planificación financiera a largo plazo, el análisis de rentabilidad/riesgo y el estudio de mercados.</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon">🏀</div>
+          <div>
+            <h3>Deporte y Vida Social</h3>
+            <p>Apasionado de practicar y analizar todo tipo de deportes (baloncesto, fútbol, tenis) y disfrutar del tiempo de calidad con mi familia, mi pareja y mis amigos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. SECCIÓN CURRICULUM / EXPERIENCIA Y FORMACIÓN
+       ========================================== -->
+  <section class="section" id="experiencia">
+    <div class="section-header">
+      <span class="section-subtitle">Formación Académica y Carrera Deportiva de Élite</span>
+      <h2 class="section-title">Trayectoria y Logros</h2>
+    </div>
+
+    <div class="timeline-columns">
+      
+      <!-- COLUMNA 1: FORMACIÓN ACADÉMICA -->
+      <div class="timeline-column">
+        <h3 class="timeline-heading">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Formación Académica
+        </h3>
+
+        <div class="timeline">
+          <!-- Item Académico 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">2022 – Actualidad (Último Curso)</span>
+            <h4 class="timeline-title">Grado en Ciencia de Datos</h4>
+            <span class="timeline-org">Universidad Internacional de La Rioja (UNIR)</span>
+            <p class="timeline-desc">
+              Formación integral en estadística avanzada, programación en Python y R, aprendizaje automático, arquitecturas de datos (SQL, MongoDB, Neo4j) y herramientas de Business Intelligence.
+            </p>
+            <div class="timeline-highlight">
+              <strong>Nota media actual:</strong> 7.21 / 10 (Compaginado con deporte de alto rendimiento).
+            </div>
+          </div>
+
+          <!-- Item Académico 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">Finalizado en 2022</span>
+            <h4 class="timeline-title">Bachillerato de Ciencias y Educación Escolar</h4>
+            <span class="timeline-org">Colegio Santo Domingo (Dominicos) – A Coruña</span>
+            <p class="timeline-desc">
+              Etapa estudiantil completa cursada en el centro con especialización en la rama científica, destacando en Matemáticas y Física.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUMNA 2: TRAYECTORIA DEPORTIVA PROFESIONAL -->
+      <div class="timeline-column">
+        <h3 class="timeline-heading">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          Carrera Deportiva Profesional
+        </h3>
+
+        <div class="timeline">
+          <!-- Item Deportivo 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">Actualidad</span>
+            <h4 class="timeline-title">Jugador Sénior – Liga Tercera FEB</h4>
+            <span class="timeline-org">Escola Basket Xiria (Carballo)</span>
+            <p class="timeline-desc">
+              Finalizada la etapa de vinculación dual, formo parte en exclusiva de la primera plantilla del Escola Basket Xiria en competición nacional FEB, compaginándolo con la recta final de mis estudios universitarios.
+            </p>
+          </div>
+
+          <!-- Item Deportivo 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">Temporadas 2022 – 2026 (4 Temporadas)</span>
+            <h4 class="timeline-title">Jugador Vinculado Primer Equipo (ACB / Primera FEB)</h4>
+            <span class="timeline-org">Leyma Básquet Coruña &amp; Escola Basket Xiria</span>
+            <p class="timeline-desc">
+              Doble dinámica de máxima exigencia: entrenamientos diarios por las mañanas con la plantilla profesional del Básquet Coruña y sesiones vespertinas y competición de fin de semana con el Escola Basket Xiria.
+            </p>
+            <ul class="timeline-achievements">
+              <li>🏆 <strong>Temporada 2023-2024:</strong> Histórico primer ascenso a la Liga Endesa (ACB).</li>
+              <li>⭐ <strong>Temporada 2024-2025:</strong> <strong>Debut oficial en Liga ACB</strong> en el encuentro frente a UCAM Murcia con el Leyma Coruña.</li>
+              <li>🏆 <strong>Temporada 2025-2026:</strong> Segundo ascenso a la máxima categoría nacional (ACB).</li>
+            </ul>
+          </div>
+
+          <!-- Item Deportivo 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">Temporada 2021 – 2022 (y Categorías Base)</span>
+            <h4 class="timeline-title">Debut en LEB Oro y Cantera</h4>
+            <span class="timeline-org">Club Básquet Coruña</span>
+            <p class="timeline-desc">
+              Formado desde niño en la cantera del club. En mi último año de formación fui convocado para integrarme en la dinámica del primer equipo, logrando mi <strong>debut en LEB Oro (actual Primera FEB) con solo 17 años</strong> antes de superar con éxito una lesión de ligamento cruzado en diciembre de 2021.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. SECCIÓN PROYECTOS
+       COMENTARIO PARA SANTI: Aquí puedes editar títulos, descripciones
+       y cambiar los enlaces 'href' hacia tus repositorios concretos de GitHub.
+       Para añadir un proyecto nuevo, copia y pega un bloque <article class="project-card">.
+       ========================================== -->
+  <section class="section" id="proyectos">
+    <div class="section-header">
+      <span class="section-subtitle">Aplicación Práctica de Ciencia de Datos</span>
+      <h2 class="section-title">Proyectos Destacados</h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- PROYECTO 1 (Modificar enlace o descripción cuando subas el repo específico) -->
+      <article class="project-card">
+        <div class="project-top">
+          <div class="project-folder">🏀</div>
+          <div class="project-links">
+            <a href="https://github.com/{{ .Site.Params.githubUser }}" target="_blank" rel="noopener" title="Ver Repositorio en GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+          </div>
+        </div>
+        <h3 class="project-title">Basketball Advanced Analytics &amp; Scouting</h3>
+        <p class="project-summary">
+          Análisis estadístico avanzado de rendimiento en baloncesto (métricas de eficiencia ofensiva/defensiva, posesiones, True Shooting % y clustering de perfiles de jugadores) combinando conocimiento de pista profesional con técnicas de Ciencia de Datos.
+        </p>
+        <div class="project-tech">
+          <span>Python</span>
+          <span>Pandas</span>
+          <span>SQL</span>
+          <span>Power BI</span>
+        </div>
+      </article>
+
+      <!-- PROYECTO 2 -->
+      <article class="project-card">
+        <div class="project-top">
+          <div class="project-folder">💹</div>
+          <div class="project-links">
+            <a href="https://github.com/{{ .Site.Params.githubUser }}" target="_blank" rel="noopener" title="Ver Repositorio en GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+          </div>
+        </div>
+        <h3 class="project-title">Optimización de Carteras y Finanzas Personales</h3>
+        <p class="project-summary">
+          Estudio cuantitativo de series temporales financieras y simulación de rentabilidad-riesgo para estrategias de inversión a largo plazo. Incluye cuadros de mando interactivos para el seguimiento patrimonial y métricas de volatilidad.
+        </p>
+        <div class="project-tech">
+          <span>R</span>
+          <span>Python</span>
+          <span>Tableau</span>
+          <span>Estadística</span>
+        </div>
+      </article>
+
+      <!-- PROYECTO 3 -->
+      <article class="project-card">
+        <div class="project-top">
+          <div class="project-folder">🕸️</div>
+          <div class="project-links">
+            <a href="https://github.com/{{ .Site.Params.githubUser }}" target="_blank" rel="noopener" title="Ver Repositorio en GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+          </div>
+        </div>
+        <h3 class="project-title">Arquitecturas NoSQL y Modelado en Grafos</h3>
+        <p class="project-summary">
+          Diseño, ingesta y consulta de datos no estructurados y altamente conectados. Implementación de bases de datos orientadas a documentos en MongoDB y análisis de relaciones y centralidad mediante grafos en Neo4j.
+        </p>
+        <div class="project-tech">
+          <span>Neo4j</span>
+          <span>MongoDB</span>
+          <span>Cypher</span>
+          <span>SQL</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="projects-more">
+      <a href="https://github.com/{{ .Site.Params.githubUser }}?tab=repositories" target="_blank" rel="noopener" class="btn btn-secondary">
+        Ver todos mis repositorios en GitHub →
+      </a>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. SECCIÓN HABILIDADES / STACK TÉCNICO
+       COMENTARIO PARA SANTI: Puedes añadir nuevas etiquetas <span class="skill-tag">
+       dentro de cada categoría conforme aprendas nuevas librerías o herramientas.
+       ========================================== -->
+  <section class="section" id="habilidades">
+    <div class="section-header">
+      <span class="section-subtitle">Lenguajes, Bases de Datos y Herramientas</span>
+      <h2 class="section-title">Stack Tecnológico</h2>
+    </div>
+
+    <div class="skills-grid">
+      
+      <!-- Categoría 1: Programación y Ciencia de Datos -->
+      <div class="skill-category-card">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">🐍</span>
+          <h3>Lenguajes &amp; Data Science</h3>
+        </div>
+        <p class="skill-cat-desc">Limpieza de datos, análisis estadístico, modelado matemático y aprendizaje automático.</p>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Python</span>
+          <span class="skill-tag highlight">R</span>
+          <span class="skill-tag">Análisis Estadístico</span>
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">Modelado Matemático</span>
+          <span class="skill-tag">EDA</span>
+        </div>
+      </div>
+
+      <!-- Categoría 2: Bases de Datos (Relacionales, Documentales y Grafos) -->
+      <div class="skill-category-card">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">🗄️</span>
+          <h3>Bases de Datos &amp; Big Data</h3>
+        </div>
+        <p class="skill-cat-desc">Gestión de datos estructurados, colecciones documentales NoSQL y bases de datos orientadas a grafos.</p>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">SQL</span>
+          <span class="skill-tag highlight">MongoDB</span>
+          <span class="skill-tag highlight">Neo4j</span>
+          <span class="skill-tag">Modelado Entidad-Relación</span>
+          <span class="skill-tag">Bases de Datos de Grafos</span>
+          <span class="skill-tag">NoSQL</span>
+        </div>
+      </div>
+
+      <!-- Categoría 3: Business Intelligence & Visualización -->
+      <div class="skill-category-card">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">📊</span>
+          <h3>Business Intelligence &amp; Herramientas</h3>
+        </div>
+        <p class="skill-cat-desc">Creación de dashboards interactivos, storytelling con datos y control de versiones.</p>
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Power BI</span>
+          <span class="skill-tag highlight">Tableau</span>
+          <span class="skill-tag">Git &amp; GitHub</span>
+          <span class="skill-tag">Data Storytelling</span>
+          <span class="skill-tag">KPIs de Negocio</span>
+        </div>
+      </div>
+
+      <!-- Categoría 4: Competencias Transversales (Soft Skills) -->
+      <div class="skill-category-card">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">🧠</span>
+          <h3>Competencias de Alto Rendimiento</h3>
+        </div>
+        <p class="skill-cat-desc">Habilidades desarrolladas en el baloncesto profesional transferidas al entorno corporativo.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Trabajo en Equipo</span>
+          <span class="skill-tag">Disciplina y Constancia</span>
+          <span class="skill-tag">Gestión de la Presión</span>
+          <span class="skill-tag">Resolución de Problemas</span>
+          <span class="skill-tag">Capacidad Analítica</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. SECCIÓN CONTACTO
+       ========================================== -->
+  <section class="section" id="contacto">
+    <div class="contact-box">
+      <div class="contact-info">
+        <span class="section-subtitle">¿Hablamos?</span>
+        <h2 class="section-title">Contacto Directo</h2>
+        <p class="contact-text">
+          Actualmente estoy buscando una oportunidad de <strong>prácticas curriculares o extracurriculares en Ciencia de Datos / Data Analytics</strong> 
+          (tanto en A Coruña como en modalidad híbrida o remota). Si buscas a alguien con sólida base analítica, ganas de aprender con datos reales y 
+          compromiso total, estaré encantado de conversar.
+        </p>
+
+        <div class="contact-methods">
+          <a href="mailto:{{ .Site.Params.email }}" class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <div>
+              <strong>Correo Electrónico</strong>
+              <span>{{ .Site.Params.email }}</span>
+            </div>
+          </a>
+
+          <a href="tel:+34604001957" class="contact-item">
+            <span class="contact-icon">📱</span>
+            <div>
+              <strong>Teléfono / WhatsApp</strong>
+              <span>{{ .Site.Params.phone }}</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/{{ .Site.Params.githubUser }}" target="_blank" rel="noopener" class="contact-item">
+            <span class="contact-icon">💻</span>
+            <div>
+              <strong>GitHub</strong>
+              <span>github.com/{{ .Site.Params.githubUser }}</span>
+            </div>
+          </a>
+
+          <a href="https://instagram.com/{{ .Site.Params.instagramUser }}" target="_blank" rel="noopener" class="contact-item">
+            <span class="contact-icon">📸</span>
+            <div>
+              <strong>Redes Sociales</strong>
+              <span>@{{ .Site.Params.instagramUser }}</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Formulario funcional que abre el cliente de correo o puede conectarse a Formspree -->
+      <!-- COMENTARIO PARA SANTI: Si quieres recibir mensajes sin que se abra el gestor de correo,
+           regístrate gratis en formspree.io y cambia el atributo action="https://formspree.io/f/TU_CODIGO" -->
+      <form class="contact-form" action="mailto:{{ .Site.Params.email }}" method="post" enctype="text/plain">
+        <h3>Envíame un mensaje rápido</h3>
+        <div class="form-group">
+          <label for="nombre">Nombre o Empresa</label>
+          <input type="text" id="nombre" name="Nombre" placeholder="Ej. María Gómez - Tech Corp" required />
+        </div>
+        <div class="form-group">
+          <label for="correo">Tu Correo Electrónico</label>
+          <input type="email" id="correo" name="Email" placeholder="tu@empresa.com" required />
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="Mensaje" rows="4" placeholder="Hola Santi, hemos visto tu perfil de Ciencia de Datos y nos gustaría..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Enviar Mensaje</button>
+      </form>
+    </div>
+  </section>
+
+</div>
+
+{{ end }}
