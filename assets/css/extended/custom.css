@@ -23,6 +23,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Color de fondo global armónico para toda la web (tanto portada como páginas internas) */
+body {
+  background-color: #f8fafc !important; /* Tono azulado muy sutil y limpio */
+}
+
+.dark body {
+  background-color: #111827 !important; /* Tono oscuro profundo para dark mode */
+}
+
 /* Ampliar el ancho máximo que PaperMod restringe por defecto */
 .main {
   max-width: 1120px !important;
@@ -430,7 +439,8 @@ html {
 }
 
 .project-card {
-  background: var(--entry);
+  position: relative; /* Clave para contener el enlace expandido */
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--card-radius);
   padding: 1.75rem;
@@ -438,12 +448,28 @@ html {
   flex-direction: column;
   justify-content: space-between;
   transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.dark .project-card {
+  background: var(--entry);
 }
 
 .project-card:hover {
   transform: translateY(-5px);
   border-color: var(--accent-color);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.12);
+}
+
+/* El enlace del título se expande a toda la tarjeta */
+.project-title-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* Cubre toda la tarjeta */
 }
 
 .project-top {
@@ -457,13 +483,23 @@ html {
   font-size: 2rem;
 }
 
+/* El icono de GitHub se sitúa por encima para poder pulsarlo de forma independiente */
+.project-links {
+  position: relative;
+  z-index: 2; /* Mayor que el enlace general */
+}
+
 .project-links a {
+  display: inline-block;
+  padding: 0.25rem;
+  border-radius: 6px;
   color: var(--secondary);
   transition: var(--transition-fast);
 }
 
 .project-links a:hover {
   color: var(--accent-color);
+  transform: scale(1.15);
 }
 
 .project-title {
@@ -701,4 +737,235 @@ html {
   .contact-box {
     padding: 1.5rem;
   }
+}
+
+  /* ==========================================
+   7. ESTILOS PARA LAS PÁGINAS DE PROYECTOS (Páginas internas)
+   ========================================== */
+
+/* Envolver el proyecto en una tarjeta grande y moderna */
+.post-single {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3rem 4rem;
+  margin-top: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilizar el título principal del proyecto */
+.post-title {
+  font-size: clamp(2rem, 4vw, 2.8rem) !important;
+  font-weight: 800 !important;
+  margin-bottom: 1.5rem !important;
+  line-height: 1.2 !important;
+  color: var(--primary);
+}
+
+/* Estilos de los subtítulos dentro del README */
+.post-content h2 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.post-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Textos y listas */
+.post-content p, 
+.post-content li {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--content);
+}
+
+.post-content ul, 
+.post-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-content li {
+  margin-bottom: 0.6rem;
+}
+
+/* Resaltar el código en gris clarito como los tags de la portada */
+.post-content code {
+  background: var(--accent-soft) !important;
+  color: var(--accent-color) !important;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+/* Botón interactivo para retroceder */
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  background: var(--theme);
+  color: var(--primary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+  transition: var(--transition-fast);
+}
+
+.btn-back:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateX(-5px); /* Efecto de moverse hacia la izquierda */
+}
+
+/* Adaptación para teléfonos móviles */
+@media (max-width: 768px) {
+  .post-single {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+}
+/* ESTRUCTURA PÁGINAS DE PROYECTO */
+.project-detail-container {
+  max-width: 900px;
+  margin: 1.5rem auto 4rem auto;
+  padding: 0 1rem;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.15rem;
+  background: var(--entry);
+  color: var(--primary) !important;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: var(--transition-fast);
+}
+
+.btn-back:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color) !important;
+  transform: translateX(-4px);
+}
+
+.project-detail-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.dark .project-detail-card {
+  background: var(--entry);
+}
+
+.project-detail-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-tag-pill {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-color);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.project-detail-title {
+  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--primary);
+  margin: 0 0 1rem 0;
+}
+
+.project-detail-lead {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.project-detail-body h2 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-detail-body h3 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-top: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-detail-body p,
+.project-detail-body li {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--content);
+}
+
+.project-detail-body code {
+  background: var(--accent-soft) !important;
+  color: var(--accent-color) !important;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.project-detail-body pre code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0;
+}
+/* Evitar desbordamiento de bloques de código */
+.project-detail-body pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre;
+  border-radius: 10px;
+}
+
+.project-detail-body .highlight {
+  max-width: 100%;
+  overflow: hidden;
 }
