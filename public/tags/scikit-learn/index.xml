@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Scikit-Learn on Santiago Martínez Granda | Data Science &amp; Analytics</title>
+    <link>http://localhost:1313/tags/scikit-learn/</link>
+    <description>Recent content in Scikit-Learn on Santiago Martínez Granda | Data Science &amp; Analytics</description>
+    <generator>Hugo</generator>
+    <language>es-es</language>
+    <lastBuildDate>Wed, 21 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/scikit-learn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Segmentación de Clientes &amp; Perfilado de Riesgo Financiero</title>
+      <link>http://localhost:1313/proyectos/clustering-python/</link>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/proyectos/clustering-python/</guid>
+      <description>Aprendizaje no supervisado (K-Means, PCA y DBSCAN) sobre una cartera de 8.950 tarjetas de crédito para identificar patrones de consumo y perfiles de riesgo.</description>
+    </item>
+  </channel>
+</rss>

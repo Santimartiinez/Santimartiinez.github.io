@@ -2,13 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/clustering/</loc>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/machine-learning/</loc>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/pca/</loc>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/proyectos/</loc>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/python/</loc>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/scikit-learn/</loc>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/proyectos/clustering-python/</loc>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/business-intelligence/</loc>
     <lastmod>2026-10-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/data-visualization/</loc>
-    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/proyectos/</loc>
     <lastmod>2026-10-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/retail-analytics/</loc>
@@ -17,19 +41,10 @@
     <loc>http://localhost:1313/proyectos/retail-dashboard-tableau/</loc>
     <lastmod>2026-10-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/tableau/</loc>
     <lastmod>2026-10-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-10-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/glmnet/</loc>
-    <lastmod>2026-10-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/machine-learning/</loc>
     <lastmod>2026-10-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/proyectos/optimizacion-biofabricacion/</loc>

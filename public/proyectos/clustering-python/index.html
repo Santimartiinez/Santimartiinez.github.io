@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Segmentación de Clientes &amp; Perfilado de Riesgo Financiero | Santiago Martínez Granda | Data Science &amp; Analytics</title>
+<meta name="keywords" content="Python, Machine Learning, Clustering, PCA, Scikit-Learn">
+<meta name="description" content="Aprendizaje no supervisado (K-Means, PCA y DBSCAN) sobre una cartera de 8.950 tarjetas de crédito para identificar patrones de consumo y perfiles de riesgo.">
+<meta name="author" content="Santiago Martínez Granda">
+<link rel="canonical" href="http://localhost:1313/proyectos/clustering-python/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.af7d871760155fc777e966498fdb73bf795a86f05cc5643522cf2cc9cf597f10.css" integrity="sha256-r32HF2AVX8d36WZJj9tzv3lahvBcxWQ1Is8syc9ZfxA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="es" href="http://localhost:1313/proyectos/clustering-python/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/proyectos/clustering-python/">
+  <meta property="og:site_name" content="Santiago Martínez Granda | Data Science & Analytics">
+  <meta property="og:title" content="Segmentación de Clientes & Perfilado de Riesgo Financiero">
+  <meta property="og:description" content="Aprendizaje no supervisado (K-Means, PCA y DBSCAN) sobre una cartera de 8.950 tarjetas de crédito para identificar patrones de consumo y perfiles de riesgo.">
+  <meta property="og:locale" content="es_es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="proyectos">
+    <meta property="article:published_time" content="2026-10-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-10-21T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Machine Learning">
+    <meta property="article:tag" content="Clustering">
+    <meta property="article:tag" content="PCA">
+    <meta property="article:tag" content="Scikit-Learn">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Segmentación de Clientes & Perfilado de Riesgo Financiero">
+  <meta name="twitter:description" content="Aprendizaje no supervisado (K-Means, PCA y DBSCAN) sobre una cartera de 8.950 tarjetas de crédito para identificar patrones de consumo y perfiles de riesgo.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Proyectos",
+      "item": "http://localhost:1313/proyectos/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Segmentación de Clientes \u0026 Perfilado de Riesgo Financiero",
+      "item": "http://localhost:1313/proyectos/clustering-python/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Segmentación de Clientes \u0026 Perfilado de Riesgo Financiero",
+  "name": "Segmentación de Clientes \u0026 Perfilado de Riesgo Financiero",
+  "description": "Aprendizaje no supervisado (K-Means, PCA y DBSCAN) sobre una cartera de 8.950 tarjetas de crédito para identificar patrones de consumo y perfiles de riesgo.",
+  "keywords": [
+    "Python", "Machine Learning", "Clustering", "PCA", "Scikit-Learn"
+  ],
+  "articleBody": "Descripción General Este proyecto aplica aprendizaje no supervisado para segmentar a 8 950 titulares de tarjeta de crédito a partir de 17 variables de comportamiento transaccional (saldo, compras, anticipos de efectivo, pagos, límite de crédito, antigüedad, etc.).\nProblema de negocio: Una entidad financiera que trata a todos sus clientes por igual desperdicia efectividad en sus campañas de marketing y detecta tarde los comportamientos de riesgo. El objetivo es descubrir patrones de uso no evidentes y agruparlos en segmentos homogéneos, interpretables y accionables.\nResultado clave:\nClientes analizados: 8.950 Componentes principales (PCA): 6 (reteniendo el 80.4% de la varianza) Modelo final: K-Means ($K = 5$) Modelo descartado: DBSCAN (generó 1 macro-clúster con el 99.4% de los datos por densidad continua) Metodología y Flujo de Trabajo El flujo de trabajo sigue un pipeline deliberado y reproducible:\nCalidad de Datos \u0026 EDA: Detección de asimetría positiva severa y multicolinealidad entre variables monetarias. Preprocesamiento: Imputación por mediana, transformación logarítmica (np.log1p) para mitigar el impacto de outliers y escalado estandarizado (StandardScaler). Reducción de Dimensión: Selección de 6 componentes principales mediante PCA para eliminar la redundancia dimensional. Modelado y Selección: Evaluación de $K=2 \\dots 9$ mediante el método del codo y el coeficiente de silueta, seleccionando $K=5$ por interpretabilidad comercial. Segmentos Finales y Perfilado Clúster % Cartera Perfil comercial Rasgos clave (mediana) Acción prioritaria 0 30.11% Inactivos / Revolvers pasivos Compras = 0; saldo 1.439; anticipos 939 Campañas de reactivación y cashback 1 22.41% VIP / High Spenders Compras 1.963; frecuencia 1.00; límite 6.000 Fidelización premium / tarjeta Black 2 9.97% Efectivo / Alto riesgo Saldo 3.815; anticipos 3.215; pagos mín. 1.298 Gestión de riesgo y refinanciación 3 14.63% Bajo uso / Low Engagement Saldo 22; compras 177; frecuencia 0.20 Onboarding y vinculación digital 4 22.88% Compradores a plazos Compras en cuotas 419 vs. 0 pago único Promociones 0% interés y revisión de límite Insights de Negocio 🔴 Riesgo: El Clúster 2 (≈10%) combina saldos elevados, uso intensivo de efectivo y pagos mínimos altos → prioridad para seguimiento y mitigación de morosidad. 🟢 Valor: El Clúster 1 (≈22%) concentra el mayor gasto con frecuencia de compra plena → candidato natural a programas de fidelización premium. 🟡 Oportunidad: El Clúster 0 (≈30%) representa la mayor palanca de reactivación al no realizar compras pero mantener uso de tarjeta. 💻 Repositorio del Código: Ver proyecto y Notebook en GitHub\n",
+  "wordCount" : "389",
+  "inLanguage": "es",
+  "datePublished": "2026-10-21T00:00:00Z",
+  "dateModified": "2026-10-21T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Santiago Martínez Granda"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/proyectos/clustering-python/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Santiago Martínez Granda | Data Science \u0026 Analytics",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Santiago Martínez Granda | Data Science &amp; Analytics (Alt + H)">Santiago Martínez Granda | Data Science &amp; Analytics</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/#sobre-mi" title="Sobre mí">
+                    <span>Sobre mí</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/#experiencia" title="Trayectoria">
+                    <span>Trayectoria</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/#proyectos" title="Proyectos">
+                    <span>Proyectos</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/#habilidades" title="Stack">
+                    <span>Stack</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/#contacto" title="Contacto">
+                    <span>Contacto</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<div class="project-detail-container">
+
+  
+  <a href="/" class="btn-back">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    Volver al inicio
+  </a>
+
+  
+  <article class="project-detail-card">
+    <header class="project-detail-header">
+      <div class="project-badges">
+        
+        <span class="project-tag-pill">Python</span>
+        
+        <span class="project-tag-pill">Machine Learning</span>
+        
+        <span class="project-tag-pill">Clustering</span>
+        
+        <span class="project-tag-pill">PCA</span>
+        
+        <span class="project-tag-pill">Scikit-Learn</span>
+        
+      </div>
+      <h1 class="project-detail-title">Segmentación de Clientes &amp; Perfilado de Riesgo Financiero</h1>
+      
+      <p class="project-detail-lead">Aprendizaje no supervisado (K-Means, PCA y DBSCAN) sobre una cartera de 8.950 tarjetas de crédito para identificar patrones de consumo y perfiles de riesgo.</p>
+      
+    </header>
+
+    <div class="project-detail-body">
+      <h2 id="descripción-general">Descripción General</h2>
+<p>Este proyecto aplica <strong>aprendizaje no supervisado</strong> para segmentar a <strong>8 950 titulares de tarjeta de crédito</strong> a partir de <strong>17 variables de comportamiento transaccional</strong> (saldo, compras, anticipos de efectivo, pagos, límite de crédito, antigüedad, etc.).</p>
+<p><strong>Problema de negocio:</strong> Una entidad financiera que trata a todos sus clientes por igual desperdicia efectividad en sus campañas de marketing y detecta tarde los comportamientos de riesgo. El objetivo es descubrir patrones de uso no evidentes y agruparlos en <strong>segmentos homogéneos, interpretables y accionables</strong>.</p>
+<p><strong>Resultado clave:</strong></p>
+<ul>
+<li><strong>Clientes analizados:</strong> 8.950</li>
+<li><strong>Componentes principales (PCA):</strong> 6 (reteniendo el 80.4% de la varianza)</li>
+<li><strong>Modelo final:</strong> K-Means ($K = 5$)</li>
+<li><strong>Modelo descartado:</strong> DBSCAN (generó 1 macro-clúster con el 99.4% de los datos por densidad continua)</li>
+</ul>
+<hr>
+<h2 id="metodología-y-flujo-de-trabajo">Metodología y Flujo de Trabajo</h2>
+<p>El flujo de trabajo sigue un <em>pipeline</em> deliberado y reproducible:</p>
+<ol>
+<li><strong>Calidad de Datos &amp; EDA:</strong> Detección de asimetría positiva severa y multicolinealidad entre variables monetarias.</li>
+<li><strong>Preprocesamiento:</strong> Imputación por mediana, transformación logarítmica (<code>np.log1p</code>) para mitigar el impacto de <em>outliers</em> y escalado estandarizado (<code>StandardScaler</code>).</li>
+<li><strong>Reducción de Dimensión:</strong> Selección de 6 componentes principales mediante <strong>PCA</strong> para eliminar la redundancia dimensional.</li>
+<li><strong>Modelado y Selección:</strong> Evaluación de $K=2 \dots 9$ mediante el método del codo y el coeficiente de silueta, seleccionando $K=5$ por interpretabilidad comercial.</li>
+</ol>
+<hr>
+<h2 id="segmentos-finales-y-perfilado">Segmentos Finales y Perfilado</h2>
+<table>
+	<thead>
+			<tr>
+					<th style="text-align: center">Clúster</th>
+					<th style="text-align: right">% Cartera</th>
+					<th style="text-align: left">Perfil comercial</th>
+					<th style="text-align: left">Rasgos clave (mediana)</th>
+					<th style="text-align: left">Acción prioritaria</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: center"><strong>0</strong></td>
+					<td style="text-align: right">30.11%</td>
+					<td style="text-align: left"><strong>Inactivos / Revolvers pasivos</strong></td>
+					<td style="text-align: left">Compras = 0; saldo 1.439; anticipos 939</td>
+					<td style="text-align: left">Campañas de reactivación y cashback</td>
+			</tr>
+			<tr>
+					<td style="text-align: center"><strong>1</strong></td>
+					<td style="text-align: right">22.41%</td>
+					<td style="text-align: left"><strong>VIP / High Spenders</strong></td>
+					<td style="text-align: left">Compras 1.963; frecuencia 1.00; límite 6.000</td>
+					<td style="text-align: left">Fidelización premium / tarjeta Black</td>
+			</tr>
+			<tr>
+					<td style="text-align: center"><strong>2</strong></td>
+					<td style="text-align: right">9.97%</td>
+					<td style="text-align: left"><strong>Efectivo / Alto riesgo</strong></td>
+					<td style="text-align: left">Saldo 3.815; anticipos 3.215; pagos mín. 1.298</td>
+					<td style="text-align: left">Gestión de riesgo y refinanciación</td>
+			</tr>
+			<tr>
+					<td style="text-align: center"><strong>3</strong></td>
+					<td style="text-align: right">14.63%</td>
+					<td style="text-align: left"><strong>Bajo uso / Low Engagement</strong></td>
+					<td style="text-align: left">Saldo 22; compras 177; frecuencia 0.20</td>
+					<td style="text-align: left">Onboarding y vinculación digital</td>
+			</tr>
+			<tr>
+					<td style="text-align: center"><strong>4</strong></td>
+					<td style="text-align: right">22.88%</td>
+					<td style="text-align: left"><strong>Compradores a plazos</strong></td>
+					<td style="text-align: left">Compras en cuotas 419 vs. 0 pago único</td>
+					<td style="text-align: left">Promociones 0% interés y revisión de límite</td>
+			</tr>
+	</tbody>
+</table>
+<hr>
+<h2 id="insights-de-negocio">Insights de Negocio</h2>
+<ul>
+<li>🔴 <strong>Riesgo:</strong> El Clúster 2 (≈10%) combina saldos elevados, uso intensivo de efectivo y pagos mínimos altos → prioridad para seguimiento y mitigación de morosidad.</li>
+<li>🟢 <strong>Valor:</strong> El Clúster 1 (≈22%) concentra el mayor gasto con frecuencia de compra plena → candidato natural a programas de fidelización premium.</li>
+<li>🟡 <strong>Oportunidad:</strong> El Clúster 0 (≈30%) representa la mayor palanca de reactivación al no realizar compras pero mantener uso de tarjeta.</li>
+</ul>
+<hr>
+<blockquote>
+<p>💻 <strong>Repositorio del Código:</strong> <a href="https://github.com/santimartiinez">Ver proyecto y Notebook en GitHub</a></p>
+</blockquote>
+
+    </div>
+  </article>
+
+</div>
+
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Santiago Martínez Granda | Data Science &amp; Analytics</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copiar';
+
+        function copyingDone() {
+            copybutton.innerHTML = '¡copiado!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copiar';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
