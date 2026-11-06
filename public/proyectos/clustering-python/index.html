@@ -114,8 +114,8 @@
   "keywords": [
     "Python", "Machine Learning", "Clustering", "PCA", "Scikit-Learn"
   ],
-  "articleBody": "Descripción General Este proyecto aplica aprendizaje no supervisado para segmentar a 8 950 titulares de tarjeta de crédito a partir de 17 variables de comportamiento transaccional (saldo, compras, anticipos de efectivo, pagos, límite de crédito, antigüedad, etc.).\nProblema de negocio: Una entidad financiera que trata a todos sus clientes por igual desperdicia efectividad en sus campañas de marketing y detecta tarde los comportamientos de riesgo. El objetivo es descubrir patrones de uso no evidentes y agruparlos en segmentos homogéneos, interpretables y accionables.\nResultado clave:\nClientes analizados: 8.950 Componentes principales (PCA): 6 (reteniendo el 80.4% de la varianza) Modelo final: K-Means ($K = 5$) Modelo descartado: DBSCAN (generó 1 macro-clúster con el 99.4% de los datos por densidad continua) Metodología y Flujo de Trabajo El flujo de trabajo sigue un pipeline deliberado y reproducible:\nCalidad de Datos \u0026 EDA: Detección de asimetría positiva severa y multicolinealidad entre variables monetarias. Preprocesamiento: Imputación por mediana, transformación logarítmica (np.log1p) para mitigar el impacto de outliers y escalado estandarizado (StandardScaler). Reducción de Dimensión: Selección de 6 componentes principales mediante PCA para eliminar la redundancia dimensional. Modelado y Selección: Evaluación de $K=2 \\dots 9$ mediante el método del codo y el coeficiente de silueta, seleccionando $K=5$ por interpretabilidad comercial. Segmentos Finales y Perfilado Clúster % Cartera Perfil comercial Rasgos clave (mediana) Acción prioritaria 0 30.11% Inactivos / Revolvers pasivos Compras = 0; saldo 1.439; anticipos 939 Campañas de reactivación y cashback 1 22.41% VIP / High Spenders Compras 1.963; frecuencia 1.00; límite 6.000 Fidelización premium / tarjeta Black 2 9.97% Efectivo / Alto riesgo Saldo 3.815; anticipos 3.215; pagos mín. 1.298 Gestión de riesgo y refinanciación 3 14.63% Bajo uso / Low Engagement Saldo 22; compras 177; frecuencia 0.20 Onboarding y vinculación digital 4 22.88% Compradores a plazos Compras en cuotas 419 vs. 0 pago único Promociones 0% interés y revisión de límite Insights de Negocio 🔴 Riesgo: El Clúster 2 (≈10%) combina saldos elevados, uso intensivo de efectivo y pagos mínimos altos → prioridad para seguimiento y mitigación de morosidad. 🟢 Valor: El Clúster 1 (≈22%) concentra el mayor gasto con frecuencia de compra plena → candidato natural a programas de fidelización premium. 🟡 Oportunidad: El Clúster 0 (≈30%) representa la mayor palanca de reactivación al no realizar compras pero mantener uso de tarjeta. 💻 Repositorio del Código: Ver proyecto y Notebook en GitHub\n",
-  "wordCount" : "389",
+  "articleBody": "Descripción General Este proyecto aplica aprendizaje no supervisado para segmentar a 8 950 titulares de tarjeta de crédito a partir de 17 variables de comportamiento transaccional (saldo, compras, anticipos de efectivo, pagos, límite de crédito, antigüedad, etc.).\nProblema de negocio: Una entidad financiera que trata a todos sus clientes por igual desperdicia efectividad en sus campañas de marketing y detecta tarde los comportamientos de riesgo. El objetivo es descubrir patrones de uso no evidentes y agruparlos en segmentos homogéneos, interpretables y accionables.\nResultado clave:\nClientes analizados: 8.950 Componentes principales (PCA): 6 (reteniendo el 80.4% de la varianza) Modelo final: K-Means (K = 5) Modelo descartado: DBSCAN (generó 1 macro-clúster con el 99.4% de los datos por densidad continua) Metodología y Flujo de Trabajo El flujo de trabajo sigue un pipeline deliberado y reproducible:\nCalidad de Datos \u0026 EDA: Detección de asimetría positiva severa y multicolinealidad entre variables monetarias. Preprocesamiento: Imputación por mediana, transformación logarítmica (np.log1p) para mitigar el impacto de outliers y escalado estandarizado (StandardScaler). Reducción de Dimensión: Selección de 6 componentes principales mediante PCA para eliminar la redundancia dimensional. Modelado y Selección: Evaluación de K mediante el método del codo y el coeficiente de silueta, seleccionando K=5 por interpretabilidad comercial. Segmentos Finales y Perfilado Clúster % Cartera Perfil comercial Rasgos clave (mediana) Acción prioritaria 0 30.11% Inactivos / Revolvers pasivos Compras = 0; saldo 1.439; anticipos 939 Campañas de reactivación y cashback 1 22.41% VIP / High Spenders Compras 1.963; frecuencia 1.00; límite 6.000 Fidelización premium / tarjeta Black 2 9.97% Efectivo / Alto riesgo Saldo 3.815; anticipos 3.215; pagos mín. 1.298 Gestión de riesgo y refinanciación 3 14.63% Bajo uso / Low Engagement Saldo 22; compras 177; frecuencia 0.20 Onboarding y vinculación digital 4 22.88% Compradores a plazos Compras en cuotas 419 vs. 0 pago único Promociones 0% interés y revisión de límite Insights de Negocio 🔴 Riesgo: El Clúster 2 (≈10%) combina saldos elevados, uso intensivo de efectivo y pagos mínimos altos → prioridad para seguimiento y mitigación de morosidad. 🟢 Valor: El Clúster 1 (≈22%) concentra el mayor gasto con frecuencia de compra plena → candidato natural a programas de fidelización premium. 🟡 Oportunidad: El Clúster 0 (≈30%) representa la mayor palanca de reactivación al no realizar compras pero mantener uso de tarjeta. 💻 Repositorio del Código: Ver proyecto en GitHub\n",
+  "wordCount" : "385",
   "inLanguage": "es",
   "datePublished": "2026-10-21T00:00:00Z",
   "dateModified": "2026-10-21T00:00:00Z",
@@ -234,7 +234,7 @@
 <ul>
 <li><strong>Clientes analizados:</strong> 8.950</li>
 <li><strong>Componentes principales (PCA):</strong> 6 (reteniendo el 80.4% de la varianza)</li>
-<li><strong>Modelo final:</strong> K-Means ($K = 5$)</li>
+<li><strong>Modelo final:</strong> K-Means (K = 5)</li>
 <li><strong>Modelo descartado:</strong> DBSCAN (generó 1 macro-clúster con el 99.4% de los datos por densidad continua)</li>
 </ul>
 <hr>
@@ -244,7 +244,7 @@
 <li><strong>Calidad de Datos &amp; EDA:</strong> Detección de asimetría positiva severa y multicolinealidad entre variables monetarias.</li>
 <li><strong>Preprocesamiento:</strong> Imputación por mediana, transformación logarítmica (<code>np.log1p</code>) para mitigar el impacto de <em>outliers</em> y escalado estandarizado (<code>StandardScaler</code>).</li>
 <li><strong>Reducción de Dimensión:</strong> Selección de 6 componentes principales mediante <strong>PCA</strong> para eliminar la redundancia dimensional.</li>
-<li><strong>Modelado y Selección:</strong> Evaluación de $K=2 \dots 9$ mediante el método del codo y el coeficiente de silueta, seleccionando $K=5$ por interpretabilidad comercial.</li>
+<li><strong>Modelado y Selección:</strong> Evaluación de K mediante el método del codo y el coeficiente de silueta, seleccionando K=5 por interpretabilidad comercial.</li>
 </ol>
 <hr>
 <h2 id="segmentos-finales-y-perfilado">Segmentos Finales y Perfilado</h2>
@@ -305,7 +305,7 @@
 </ul>
 <hr>
 <blockquote>
-<p>💻 <strong>Repositorio del Código:</strong> <a href="https://github.com/santimartiinez">Ver proyecto y Notebook en GitHub</a></p>
+<p>💻 <strong>Repositorio del Código:</strong> <a href="https://github.com/Santimartiinez/customer-segmentation-clustering">Ver proyecto en GitHub</a></p>
 </blockquote>
 
     </div>

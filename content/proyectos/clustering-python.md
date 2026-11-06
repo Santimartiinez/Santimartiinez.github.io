@@ -47,4 +47,4 @@ El flujo de trabajo sigue un *pipeline* deliberado y reproducible:
 - 🟡 **Oportunidad:** El Clúster 0 (≈30%) representa la mayor palanca de reactivación al no realizar compras pero mantener uso de tarjeta.
 
 ---
-> 💻 **Repositorio del Código:** [Ver proyecto y Notebook en GitHub](https://github.com/santimartiinez)
+> 💻 **Repositorio del Código:** [Ver proyecto en GitHub](https://github.com/Santimartiinez/customer-segmentation-clustering)

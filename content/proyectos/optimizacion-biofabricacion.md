@@ -71,3 +71,5 @@ remotes::install_version(
   version = "3.4.4", 
   repos = "http://cran.us.r-project.org"
 )
+```
+> 💻 **Repositorio del Código:** [Ver proyecto en GitHub](https://github.com/Santimartiinez/Optimizacion_biofarma)
